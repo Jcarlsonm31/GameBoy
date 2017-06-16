@@ -1,5 +1,5 @@
 # GameBoy
-An Arduino-based homemade GameBoy
+An Arduino-based homemade GameBoy and several handmade games.
 
 # Hardware
 I used a Meduino, which is a smaller Arduino Mega clone. A mega is required because of the memory footprint of the games.
@@ -16,16 +16,16 @@ Small vibration motor for force-feedback.
 # Software
 The main GameBoy.ino file displays the game selection menu and drops into the setup routine of the selected game.
 
-Minotaur
+## Minotaur
 Copy of the 1983 Intellivision game Treasure of Tarmin (also later known as Minotaur)
-Utilizes a pseudo-3D maze and pretty faithfully recreates the original game given the limitations of the Arduino and drawing speed.
+Utilizes a pseudo-3D maze and pretty faithfully recreates the original game given the limitations of the Arduino and drawing speed. I'm happy with how it turned out.
 I've heavily documented the code, but it's straight C and could obviously be done better. (I'm not a professional developer!)
 
-Tetris
+## Tetris
 A clone of Tetris
 
-Simon
+## Simon
 A simple implementation of the 1970's handheld Simon game.
 
-Snake
+## Snake
 A simple snake clone
