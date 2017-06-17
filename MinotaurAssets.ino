@@ -64,7 +64,8 @@ void M_InitLevelItems() {
     dupCheck = true;
     m_monsters[x] = m_masterMonsters[m_monsterSeed[random(0,24)]];
     m_monsters[x].level = m_monsterLevelSeed[random(0,8)];
-    m_monsters[x].hitPoints = m_monsters[x].hitPoints * m_monsters[x].level;
+    // Hit points are random from base points+3 to base points*level + 1
+    m_monsters[x].hitPoints = random((m_monsters[x].hitPoints * (m_monsters[x].level-1)+3), (m_monsters[x].hitPoints * m_monsters[x].level+1));
     unsigned char incrementalDamage = ((m_monsters[x].damage * m_gameDifficulty) - m_monsters[x].damage) / 3;
     m_monsters[x].damage += (m_monsters[x].level-1) * incrementalDamage;
     m_monsters[x].color = m_itemColors[m_monsters[x].level-1];
@@ -146,14 +147,14 @@ void M_InitLevelItems() {
       m_items[x].color = m_itemColors[m_items[x].level-1];
     }
     switch (m_items[x].itemType) {
-      case POTION:
-        m_items[x].restorePoints = m_items[x].restorePoints * m_items[x].level;
+      case POTION: // restore points random from base points+3 to base points*level + 1
+        m_items[x].restorePoints = random((m_items[x].restorePoints * (m_items[x].level-1)+3), (m_items[x].restorePoints * m_items[x].level+1));
         break;
       case FLOUR:
         m_items[x].restorePoints = m_items[x].restorePoints * m_items[x].level;
         break;
-      case WEAPON:
-        m_items[x].damage = m_items[x].damage * m_items[x].level;
+      case WEAPON: // damage random from base points+3 to base points*level + 1
+        m_items[x].damage = random((m_items[x].damage * (m_items[x].level-1)+3), (m_items[x].damage * m_items[x].level+1));
         break;
       case ARMOR:
         m_items[x].armorClass = m_items[x].armorClass * m_items[x].level;

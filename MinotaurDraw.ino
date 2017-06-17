@@ -142,12 +142,9 @@ void M_DrawLevel(char Draw) {
 void M_DrawHealth(char Draw) {
   tft.setTextSize(1);
   if (Draw == DRAW) {
-    if (m_player.currentHealth == m_player.maxHealth) {
+    if (m_player.currentHealth > 0) {
       M_DrawScaledBitmap(0, 130, m_masterItems[2].image, 8, 2, WHITE); 
       tft.setTextColor(WHITE);    
-    } else if (m_player.currentHealth > 0) {
-      M_DrawScaledBitmap(0, 130, m_masterItems[2].image, 8, 2, ORANGE); 
-      tft.setTextColor(ORANGE);    
     } else {
       M_DrawScaledBitmap(0, 130, m_masterItems[2].image, 8, 2, RED); 
       tft.setTextColor(RED);    
@@ -165,9 +162,20 @@ void M_DrawHealth(char Draw) {
 
 // Draw the player's current armor class
 void M_DrawArmorClass(char Draw) {
+  unsigned int clr;
+  // set armor class color to match item level colors
+  if (m_player.armorClass > 39) {
+    clr = m_itemColors[3];
+  } else if (m_player.armorClass > 26) {
+    clr = m_itemColors[2];
+  } else if (m_player.armorClass > 13) {
+    clr = m_itemColors[1];
+  } else {
+    clr = m_itemColors[0];
+  }
   tft.setTextSize(1);
   if (Draw == DRAW) {
-    tft.setTextColor(WHITE);    
+    tft.setTextColor(clr);    
   } else {
     tft.setTextColor(BLACK);        
   }
@@ -176,7 +184,7 @@ void M_DrawArmorClass(char Draw) {
   } else {
     tft.setCursor(35, 150);    
   }
-  M_DrawScaledBitmap(30, 130, m_masterItems[8].image, 8, 2, WHITE); 
+  M_DrawScaledBitmap(30, 130, m_masterItems[8].image, 8, 2, clr); 
   tft.println(m_player.armorClass);  
 }
 
