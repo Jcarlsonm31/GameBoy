@@ -1,5 +1,10 @@
 # GameBoy
 An Arduino-based homemade GameBoy and several handmade games.
+<br />
+<br />
+You can see a video of Minotaur in action here:
+<br />
+https://www.youtube.com/watch?v=BEK9CNG3cXo
 
 # Hardware
 * I used a Meduino, which is a smaller Arduino Mega clone. A mega is required because of the memory footprint of the games.
