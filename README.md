@@ -39,4 +39,5 @@ A simple snake game I built to first test out the hardware.
 ## Running Minotaur
 ![GameBoy-Front](/GameBoy.jpg)
 ![GameBoy-Side](/GameBoy-Side.jpg)
+![GameBoy-Battery](/GameBoy-Battery.jpg)
 ![GameBoy-Inside](/GameBoy-Inside.jpg)
